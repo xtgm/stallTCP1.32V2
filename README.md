@@ -1,4 +1,7 @@
-# Cloudflare Worker VLESS 节点与订阅管理面板 (通用后台版)
+# stallTCP1.3V1  节点与订阅管理面板 (通用后台版)
+
+**源代码来源于Alexandre_Kojeve的stallTCP1.3**
+**特别说明 我只是完善了html后台管理页面**
 
 **✅ 完美支持 Cloudflare Workers**  
 **✅ 完美支持 Cloudflare Pages**  
