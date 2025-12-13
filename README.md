@@ -12,12 +12,10 @@
 
 本项目包含两套代码，请根据您的部署方式选择：
 
-*   **Snippets 部署**：请使用 `snippets.js` 代码。
-*   **Worker / Pages 部署**：请使用 `_worker.js` 代码。
-
-### 🎨 双 UI 特效
-*   **Snippets 版本**：紫色渐变 UI
-*   **Worker 版本**：毛玻璃特效 UI
+*   **Worker / Pages 部署**：请使用 **`_worker.js`** 代码。
+    *   *UI 特效：高级毛玻璃风格*
+*   **Snippets 部署**：请使用 **`snippets.js`** 代码。
+    *   *UI 特效：紫色渐变风格*
 
 **如果项目对您有帮助，请给我点亮星星 Star 🌟 谢谢！**
 
@@ -28,10 +26,6 @@
 **✅ 完美支持 Cloudflare Workers**
 **✅ 完美支持 Cloudflare Pages**
 **✅ 完美支持 Cloudflare Snippets**
-
-*   **集成了 Web 管理后台、订阅转换。**
-*   **优选 IP 自动解析（支持 .netlib 异步解析）以及 Clash/Sing-box 配置生成功能。**
-*   **修复全平台所有兼容性问题，修复 iOS 系统 Shadowrocket 以及 Quantumult X 兼容性问题。**
 
 ### 核心功能详情
 *   **🚀 自适应订阅**：自动识别客户端（Clash, Sing-box, v2rayNG 等），返回对应格式的配置。
@@ -59,89 +53,98 @@
 
 ---
 
-## 🚀 部署指南
+## 🚀 部署指南一：Worker / Pages 代码版 (`_worker.js`)
 
-### 方法一：Cloudflare Workers 部署 (推荐小白)
+**适用场景：Cloudflare Workers 或 Cloudflare Pages**
 
+### 方式 A：Cloudflare Workers 部署 (最简单)
 1.  登录 Cloudflare Dashboard。
-2.  找到 **计算和 AI** -> **Workers 和 Pages**。
+2.  找到 **计算 (Workers & Pages)** -> **概述**。
 3.  选择 **从 Hello World! 开始**。
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/2b80a97b-ee57-42a8-be1a-8180254f54dc" />
-4.  输入任意 Worker 名称，点击部署。
+4.  输入任意名称，点击 **部署**。
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/b26217ed-d17c-465d-bcbd-b232ab5a4fd0" />
 5.  在 Workers 列表找到刚部署的项目，点击 **编辑代码**。
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/a7f0c75a-56c3-467b-a07f-d37cafb8dd6c" />
-6.  将 `_worker.js` 的内容粘贴到编辑器中并保存部署。
+6.  **清空**原有代码，将项目中的 **`_worker.js`** 内容完整复制粘贴进去。
+7.  点击右上角 **保存并部署**。
 
----
-
-### 方法二：Cloudflare Pages 部署
-
+### 方式 B：Cloudflare Pages 部署
 **注意：修改任何内容都需要重新上传一次代码**
 
-#### 方式 A：GitHub 自动同步 (推荐)
-1.  登录 Cloudflare -> **Workers 和 Pages** -> **创建应用程序** -> **Pages** -> **连接到 Git**。
+1.  登录 Cloudflare -> **Workers 和 Pages**。
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/75c41546-cc6a-4a2f-9fa5-3632f0d89104" />
+2.  点击 **创建应用程序**。
+    <img width="800" alt="image" src="https://github.com/user-attachments/assets/6ddd7c84-4a4f-4ddc-bd41-f2d550139999" />
+3.  点击下方的 **Get started** 跳转到 Pages 界面。
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/f5fdaa8d-d86a-471e-93de-9107db440443" />
-2.  选择你 Fork 的 GitHub 仓库。
-3.  **特别注意**：修改内容要在 GitHub 上的 `_worker.js` 进行修改，之后会自动同步到 Pages。
-4.  点击 **保存并部署**。
 
-#### 方式 B：直接上传
-1.  登录 Cloudflare -> **Workers 和 Pages** -> **创建应用程序** -> **Pages** -> **上传资产**。
+#### (方法 1) GitHub 自动同步 (推荐)
+1.  选择 **连接到 Git**。
+    <img width="800" alt="image" src="https://github.com/user-attachments/assets/8932221a-6480-491d-baf9-a26fc67a852b" />
+2.  选择你 Fork 的 GitHub 仓库。
+    <img width="800" alt="image" src="https://github.com/user-attachments/assets/2518c4e5-8503-4b4c-80f9-6ca06dfb0df9" />
+3.  **特别注意**：后续修改内容要在 GitHub 上的 `_worker.js` 进行修改，之后会自动同步到 Pages。
+4.  点击 **开始设置**，然后 **保存并部署**。
+    <img width="800" alt="image" src="https://github.com/user-attachments/assets/1c215f82-98fc-42d0-aed5-2bd032e3b859" />
+
+#### (方法 2) 直接上传
+1.  选择 **上传资产**。
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/5f823410-7308-4425-9e77-a66646235e00" />
 2.  输入项目名称，点击创建。
+    <img width="800" alt="image" src="https://github.com/user-attachments/assets/c10dc676-a06a-4a6b-bc62-f24239f454b0" />
 3.  上传包含 `_worker.js` 的 **Zip 压缩包** 或 **文件夹**。
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/5dec9d85-9fcb-4b95-89c6-a7d8c57be661" />
 4.  点击 **部署站点**。
 
 ---
 
-### 方法三：Cloudflare Snippets 部署
+## 🚀 部署指南二：Snippets 代码版 (`snippets.js`)
 
-1.  点击自己的域名进入。
+**适用场景：已有域名托管在 Cloudflare，想利用 Snippets 功能**
+
+1.  进入 Cloudflare Dashboard，点击你的**域名**。
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/2483c2b7-3bb2-4cac-bdd6-38f8b31f4329" />
-2.  找到 **规则 (Rules)** -> **Snippets**，点击 **创建片段**。
+2.  在左侧菜单找到 **规则 (Rules)** -> **Snippets**，点击 **创建片段**。
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/9059a47d-77da-4ba4-82cc-03e8a8638c0f" />
 3.  输入片段名称。
+4.  将项目中的 **`snippets.js`** 内容完整复制粘贴进去。
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/f163e9ef-989b-4645-8ebc-eadf755f4b23" />
-4.  将 `snippets.js` 的代码粘贴进去。
-5.  **设置触发规则**：选择 **自定义规则**。
-    *   字段：`主机名` (Hostname)
-    *   运算符：`等于` (equals)
+5.  **设置触发规则**：
+    *   选择 **自定义规则**。
+    *   字段：`主机名 (Hostname)`
+    *   运算符：`等于 (equals)`
     *   值：你的子域名 (例如 `sub.yourdomain.com`)
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/1f858efe-a6ce-4bf6-8d62-0bfc462ef2b3" />
-6.  **创建 DNS 记录**：
-    *   前往 DNS 设置，添加一条 **A 记录**。
-    *   名称：你的子域名 (与 Snippets 规则一致)。
-    *   IP 地址：`192.0.2.1` (保留地址即可)。
-    *   **代理状态：必须开启 (小黄云)**。
+6.  点击 **创建片段** 保存。
+7.  **配置 DNS (重要)**：
+    *   前往 **DNS** 设置页，添加一条 **A 记录**。
+    *   **名称**：填写上面设置的子域名 (例如 `sub`)。
+    *   **IPv4 地址**：`192.0.2.1` (保留地址，仅作占位用)。
+    *   **代理状态**：必须开启 **小黄云 (Proxied)**。
     <img width="600" alt="image" src="https://github.com/user-attachments/assets/f88ad346-30aa-41ef-9f7c-deb2453afbfe" />
-
----
-
-### 方法四：GitHub Actions 部署 (进阶)
-
-*如果你熟悉 Wrangler CLI，可以直接 clone 本仓库并使用 `npx wrangler deploy`。*
 
 ---
 
 ## 💾 关键步骤：绑定 KV (强烈推荐)
 
-**为了实现黑名单永久保存和后台配置记忆，请务必绑定 KV：**
+**无论使用哪种部署方式，为了实现黑名单永久保存、后台配置记忆，请务必绑定 KV：**
 
 1.  在 Cloudflare 左侧菜单选择 **Workers & Pages** -> **KV**。
-2.  点击 **Create a Namespace**，命名为 `BLACKLIST`（或任意名称）。
-3.  回到你的 Worker/Snippet 设置页 -> **Settings** -> **Variables** -> **KV Namespace Bindings**。
-4.  点击 **Add binding**：
-    *   **Variable name**: `LH` (⚠️必须填这个，不能改)
-    *   **KV Namespace**: 选择你刚才创建的空间。
+2.  点击 **创建命名空间 (Create a Namespace)**，命名为 `BLACKLIST`（或任意名称）。
+3.  回到你的 Worker/Pages/Snippet 项目设置页：
+    *   **Workers/Pages**：`设置` -> `变量` -> `KV 命名空间绑定`。
+    *   **Snippets**：`Snippets` 列表页 -> 点击你的片段 -> `变量`。
+4.  点击 **添加绑定**：
+    *   **变量名称 (Variable name)**: `LH` (⚠️必须填这个，不能改)
+    *   **KV 命名空间**: 选择你刚才创建的空间。
 5.  **保存并重新部署**。
 
 ---
 
-## ⚙️ 环境变量配置 (Environment Variables)
+## ⚙️ 环境变量配置 (Variables)
 
-您可以直接在 Cloudflare Worker/Pages 的 `Settings` -> `Variables` 中设置以下变量。
+您可以直接在 Cloudflare 项目的 `Settings` -> `Variables` 中设置以下变量。
 > **注意**：如果未设置环境变量，系统将使用代码中内置的默认配置（兜底）。**为了安全，强烈建议设置密码相关的变量！**
 
 ### 🧱 基础配置 (Basic Config)
@@ -177,7 +180,7 @@
 
 ### 💾 存储绑定变量名 (Bindings)
 
-> **注意**：请在 `Settings` -> `Variables` -> `KV Namespace Bindings` (或 D1/R2) 中绑定，**变量名必须完全一致**。
+> **注意**：变量名必须完全一致。
 
 | 变量名 | 类型 | 必选 | 用途 |
 | :--- | :--- | :--- | :--- |
