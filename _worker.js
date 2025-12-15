@@ -1,4 +1,3 @@
---- START OF FILE _worker.js ---
 
 import { connect } from 'cloudflare:sockets';
 
