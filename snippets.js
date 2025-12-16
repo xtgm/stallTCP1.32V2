@@ -6,9 +6,9 @@ import { connect } from 'cloudflare:sockets';
 const UUID = "06b65903-406d-4a41-8463-6fd5c0ee7798"; 
 
 // 1. 后台管理密码
-const WEB_PASSWORD = ""; //修改你的管理密码
+const WEB_PASSWORD = "123456"; //修改你的管理密码
 // 2. 快速订阅密码 (访问 https://域名/密码)
-const SUB_PASSWORD = ""; //修改你的订阅密码
+const SUB_PASSWORD = "123456"; //修改你的订阅密码
 
 // 3. 默认基础配置
 // 🔴 默认 ProxyIP (代码修改此处生效，客户端修改 path 生效)
